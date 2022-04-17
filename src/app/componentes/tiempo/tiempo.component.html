@@ -1,0 +1,37 @@
+<div class="container">
+  <h4 style="margin-top: 15px;">Consulta del Tiempo por Ciudad</h4>
+  <h5>{{fecha | date: 'dd/MM/yyyy'}}</h5>
+  <div class="col-lg-6 alineacion card">
+    <form [formGroup]="formulario" (ngSubmit)="consultar()">
+      <div class="mb-3">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" formControlName="ciudad">
+        <p class="text-danger" *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched">Solo se
+          aceptan letras.</p>
+      </div>
+      <div class="mb-3">
+        <label for="codigo" class="form-label">Código Ciudad</label>
+        <input type="text" class="form-control" id="codigo" formControlName="codigo">
+        <p class="text-danger" *ngIf="formulario.get('codigo')?.invalid && formulario.get('codigo')?.touched">Solo se
+          aceptan letras.</p>
+      </div>
+      <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+    <p *ngIf="showError" class="text-danger">{{mensajeError}}</p>
+  </div>
+  <div class="col-lg-6 alineacion">
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Descripcion: {{descripcion}}</li>
+          <li>Temperatura: {{temperatura}}</li>
+          <li>Humedad: {{humedad}}</li>
+          <li>Ciudad: {{name | uppercase}}</li>
+          <li>Latitud: {{latitud}}</li>
+          <li>Longitud: {{longitud}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

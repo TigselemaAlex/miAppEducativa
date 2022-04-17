@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="mt-5" *ngIf="showCiudades">
+    <p>Ciudades</p>
+    <ul *ngFor="let ciudad of ciudades">
+      <li>{{ciudad}}</li>
+    </ul>
+  </div>
+
+  <div class="mt-5">
+    <button class="btn btn-primary" *ngIf="showCiudades" (click)="change()">Esconder ciudades</button>
+    <button class="btn btn-warning" *ngIf="!showCiudades" (click)="change()">Mostrar ciudades</button>
+  </div>
+
+  <div class="mt-5">
+    <h4>NgClass</h4>
+    <div [ngClass]="{'alert-info': changeCss, 'alert-warning': !changeCss}" class="alert" role="alert">
+      <p>Alertas</p>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="cambioCss()">Cambio CSS</button>
+    </div>
+  </div>
+</div>
